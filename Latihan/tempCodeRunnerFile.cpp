@@ -1,0 +1,1 @@
+	curr->height = calculateHeight(curr);

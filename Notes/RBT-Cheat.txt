@@ -1,0 +1,32 @@
+INSERT
+
+1) ROOT is NULL, change NODE to BLACK
+2) PARENT : BLACK => No VIOLATION
+3) PARENT : RED
+    1) UNCLE : RED
+        - Change PARENT and UNCLE to BLACK
+        - Change GRANDPARENT to RED
+    
+    2) UNCLE : BLACK
+        - SINGLE/DOUBLE ROTATION at GRANDPARENT
+        - Change PARENT to BLACK and BOTH CHILD to RED
+
+DELETE
+- Perform similar DELETION process in BST
+- Either choose RIGHT-MOST of LEFT CHILD or LEFT-MOST of RIGHT CHILD
+
+1) NODE-TO-DELETE : RED
+    - NO VIOLATION
+2) NODE-TO-DELETE : BLACK
+    - DELETE the NODE
+    - Mark the location as DOUBLEBLACK
+        1) SIBLING : RED
+            SPECIAL ROTATION -> RECHECK DOUBLEBLACK
+        2) SIBLING : BLACK
+            1) BOTH CHILD : BLACK
+                - Change SIBLING to RED
+                - Move DOUBLEBLACK to PARENT -> RECHECK DOUBLEBLACK
+            2) One of the CHILD : RED
+                - SINGLE/DOUBLE ROTATION
+                - PARENT color SAME AS PREVIOUS
+                - Change CHILD to BLACK      -> RECHECK DOUBLEBLACK
